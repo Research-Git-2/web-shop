@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <title>Профиль пользователя</title> -->
+    <link rel="stylesheet" href="user.css" />
+    <script src="user.js"></script>
+    <script src="script.js"></script>
+    <script src="script2.js"></script>
+  </head>
+  <body>
+    <div class="profile-container">
+      <div class="circle" id="avatarCircle" onclick="toggleMenu()">
+        <img src="uploads/avauser.png" id="userAvatar" />
+      </div>
+
+      <div class="user-login">
+        <span id="userLogin">Your login</span>
+      </div>
+
+      <div class="menu" id="menu">
+        <ul>
+          <li>
+            <a href="index.php"><button id="loginButton">Войти</button></a>
+          </li>
+          <li>
+            <a href="logout.php"><button>Выйти</button></a>
+          </li>
+          <li>
+            <a href="settings.php"><button>Настройки</button></a>
+          </li>
+        </ul>
+      </div>
+
+      <script>
+        // Переключение видимости меню
+        function toggleMenu() {
+          const menu = document.getElementById("menu");
+          // Переключаем меню между видимым и скрытым
+          if (menu.style.display === "block") {
+            menu.style.display = "none";
+          } else {
+            menu.style.display = "block";
+          }
+        }
+
+        // Загрузка данных профиля (аватар и логин)
+        fetch("profile.php")
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.avatar) {
+              const userAvatar = document.getElementById("userAvatar");
+              userAvatar.src = data.avatar; // Установка загруженного аватара
+            }
+            if (data.login) {
+              const userLogin = document.getElementById("userLogin");
+              userLogin.textContent = data.login; // Установка логина пользователя
+            }
+          })
+          .catch((error) => console.error("Error loading profile:", error));
+      </script>
+    </div>
+  </body>
+</html>

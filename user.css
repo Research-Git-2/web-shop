@@ -1,0 +1,83 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  height: 100vh;
+  background-color: #f4f4f4;
+  position: relative;
+}
+
+.profile-container {
+  position: absolute;
+  top: 10px; 
+  right: 10px;
+  text-align: center;
+}
+
+.circle2 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ccc;
+}
+
+.circle2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.circle2:hover {
+  transform: scale(1.1);
+}
+
+.menu2 {
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.menu2 ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu2 li {
+  border-bottom: 1px solid #ccc;
+}
+
+.menu2 li:last-child {
+  border-bottom: none;
+}
+
+.menu2 button {
+  width: 100%;
+  padding: 10px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.menu2 button:hover {
+  background-color: #f4f4f4;
+}
+
+.user-login {
+  font-size: 18px;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
